@@ -1,1 +1,8 @@
-#intellij
+###intellij###
+.idea
+.iml
+.out
+
+
+### Maven ###
+target/
