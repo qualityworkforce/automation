@@ -10,12 +10,14 @@ import java.util.Map;
 public class dataTables {
 
     @Given("As a user I want to use data tables")
-    public void as_a_user_I_want_to_use_data_tables() {
+    public void as_a_user_I_want_to_use_data_tables()
+    {
         System.out.println("As a user I want to use data tables");
     }
 
     @When("I enter below data")
-    public void i_enter_below_data(io.cucumber.datatable.DataTable dataTable) {
+    public void i_enter_below_data(io.cucumber.datatable.DataTable dataTable)
+    {
 
         List<Map<String, String>> fieldValues = dataTable.asMaps(String.class,String.class);
         for (int i = 0 ; i <fieldValues.size() ;i++ )
@@ -29,12 +31,14 @@ public class dataTables {
     }
 
     @Then("it should be displayed on the screen")
-    public void it_should_be_displayed_on_the_screen() {
+    public void it_should_be_displayed_on_the_screen()
+    {
         System.out.println("Names displayed on the screen");
     }
 
     @Given("I am on Contact tab")
-    public void i_am_on_Contact_tab() {
+    public void i_am_on_Contact_tab()
+    {
         System.out.println("When I am on contact tab");
     }
 
@@ -53,8 +57,6 @@ public class dataTables {
             System.out.println("Contact Currency " + fieldValues.get(i).get("Contact Currency"));
             System.out.println("Is Resource " + fieldValues.get(i).get("Is Resource"));
             System.out.println("Is Resource Active " + fieldValues.get(i).get("Is Resource Active"));
-
-
         }
     }
 
