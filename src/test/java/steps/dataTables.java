@@ -16,7 +16,6 @@ public class dataTables {
 
     @When("I enter below data")
     public void i_enter_below_data(io.cucumber.datatable.DataTable dataTable) {
-
         List<Map<String, String>> fieldValues = dataTable.asMaps(String.class, String.class);
         for (int i = 0; i < fieldValues.size(); i++) {
             System.out.println("First Name " + fieldValues.get(i).get("First Name"));
@@ -44,7 +43,6 @@ public class dataTables {
 
     @Given("I enter")
     public void i_enter(io.cucumber.datatable.DataTable dataTable) {
-
         List<Map<String, String>> fieldValues = dataTable.asMaps(String.class, String.class);
         for (int i = 0; i < fieldValues.size(); i++) {
             System.out.println("Last Name " + fieldValues.get(i).get("Last Name"));
@@ -68,9 +66,9 @@ public class dataTables {
     public void user_must_be_navigated_to_newly_created_contact_page() {
         System.out.println("User navigated to contact page");
     }
+
     @Given("I enter below")
     public void i_enter_below(io.cucumber.datatable.DataTable dataTable) {
-
         List<Map<String, String>> fieldValues = dataTable.asMaps(String.class, String.class);
         for (int i = 0; i < fieldValues.size(); i++) {
             System.out.println("New Record DATA");
