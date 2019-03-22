@@ -1,7 +1,0 @@
--------------------------------------------------------------------------------
-Test set: com.ff.psa.TestRunner
--------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 13.208 s <<< FAILURE! - in com.ff.psa.TestRunner
-Creating an account with fields users wants(Creating a account)  Time elapsed: 12.781 s  <<< ERROR!
-java.lang.IndexOutOfBoundsException: Index: 4, Size: 4
-
