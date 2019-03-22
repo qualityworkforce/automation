@@ -7,7 +7,7 @@ import cucumber.api.java.en.When;
 import java.util.List;
 import java.util.Map;
 
-public class dataTables {
+public class DataTables {
 
 
     @Given("I am on Contact tab")
