@@ -1,3 +1,4 @@
+@dataset
 Feature: Data Tables
 
   Scenario:Creating Contact only with mandatory fields
