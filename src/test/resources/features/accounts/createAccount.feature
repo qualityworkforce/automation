@@ -19,7 +19,7 @@ Feature: Creating a account
     Then user should get a error message
     But when user click cancel user should be navigated to account tab
 
-
+  @smoke
   Scenario:Creating an account with fields users wants
     Given I navigate to Accounts tab
     And click new button
@@ -31,9 +31,10 @@ Feature: Creating a account
     When I click the save button
     Then the new account must be created
     And user should be navigated to newly created account page
+
   @smoke
   Scenario:Creating an account with fields users wants
-   Given I navigate to Accounts tab
+    Given I navigate to Accounts tab
     And click new button
     And I enter the following details on new accounts page
       | Field Name     | Value             |
@@ -44,3 +45,15 @@ Feature: Creating a account
     When I click the save button
     Then the new account must be created
     And user should be navigated to newly created account page
+
+  Scenario: Creating an account with fields special characters
+    Given I navigate to Accounts tab
+    And click new button
+    And I enter the following details on new accounts page
+      | Field Name     |  | Value       |
+      | Account Name   |  | !@£$$%^&%$£ |
+      | Account Number |  | !@£$%^&*(   |
+      | Rating         |  | £$%^%^&     |
+    When I click the save button
+    Then the new account must be created
+
