@@ -1,4 +1,5 @@
 package steps;
+import com.github.javafaker.Faker;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -9,6 +10,7 @@ import java.util.List;
 import java.util.Map;
 import static java.lang.Thread.currentThread;
 import static org.junit.Assert.assertEquals;
+
 
 public class Php_Registration {
 
@@ -25,12 +27,16 @@ public class Php_Registration {
             hooks.driver.findElement(By.name("firstname")).sendKeys(fieldValues.get(0).get("First Name"));
             hooks.driver.findElement(By.name("lastname")).sendKeys(fieldValues.get(0).get("Last Name"));
             hooks.driver.findElement(By.name("phone")).sendKeys(fieldValues.get(0).get("Mobile Number"));
-            hooks.driver.findElement(By.name("email")).sendKeys(fieldValues.get(0).get("Email"));
+            //hooks.driver.findElement(By.name("email")).sendKeys(fieldValues.get(0).get("Email"));
             hooks.driver.findElement(By.name("password")).sendKeys(fieldValues.get(0).get("Password"));
             hooks.driver.findElement(By.name("confirmpassword")).sendKeys(fieldValues.get(0).get("Confirm Password"));
             System.out.println("All Data is entered");
             currentThread().sleep(10000);
         }
+        Faker faker = new Faker();
+        String email=faker.firstName();
+        hooks.driver.findElement(By.name("email")).sendKeys(email +"@gmail.com");
+
     }
     @When("I click Sign UP button")
     public void i_click_Sign_UP_button() throws InterruptedException {
@@ -48,8 +54,8 @@ public class Php_Registration {
     }
     @Then("User must be navigated to newly created account page")
     public void user_must_be_navigated_to_newly_created_account_page() {
-        String userName = hooks.driver.findElement(By.xpath("//h3[text()='Hi, Test3 User3']")).getText();
-        assertEquals("Hi, Test3 User3", userName);
+        String userName = hooks.driver.findElement(By.xpath("//h3[text()='Hi, Test4 User4']")).getText();
+        assertEquals("Hi, Test4 User4", userName);
         System.out.println("Navigated to newly created account page ");
     }
 }
