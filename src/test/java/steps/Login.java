@@ -16,9 +16,13 @@ public class Login {
     }
 
 
-    @Given("I enter valid Username and Password")
-    public void enterUsernamePassword() {
+    @Given("I enter valid Username")
+    public void enterUsername() {
         hooks.driver.findElement(By.id("username")).sendKeys("achaliki+h10@financialforce.com");
+    }
+
+    @Given("I enter valid Password")
+    public void enterPassword() {
         hooks.driver.findElement(By.id("password")).sendKeys("Test1234");
     }
 
@@ -35,10 +39,27 @@ public class Login {
     }
 
     @Then("user must see Salesforce home screen")
-    public void user_must_see_Salesforce_home_screen() {
+    public void homePage() {
         String pageTitle = hooks.driver.getTitle();
         System.out.println(pageTitle);
         assertEquals("Home Page ~ Salesforce - Developer Edition", pageTitle);
     }
+
+    @Given("user is logged in successfully")
+    public void loggedInSuccessfully() {
+        System.out.println("Logged in successfully ");
+    }
+
+    @When("I click logout link")
+    public void clickLogout() {
+        hooks.driver.findElement(By.xpath("//div[@id='userNav']")).click();
+        hooks.driver.findElement(By.xpath("//a[@title='Logout']")).click();
+    }
+
+    @Then("user must be logged out")
+    public void loggedOut() {
+        System.out.println("Signed out successfully");
+    }
+
 
 }
