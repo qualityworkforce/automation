@@ -3,6 +3,8 @@ package steps;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 
 import java.util.List;
 import java.util.Map;
@@ -62,3 +64,14 @@ public class DataTables {
     }
 
 }
+
+//Example code for lists
+
+//    @Then("Eenadu paper homepage must be displayed")
+//    public void eenadu_paper_homepage_must_be_displayed()
+//    {
+//        List<WebElement> lis = hooks.driver.findElements(By.xpath("//div[@class='menu']/ul/li"));
+//        for(WebElement ele :lis) {
+//            System.out.println(ele.getText());
+//            System.out.println(lis.size());
+//        }
