@@ -8,10 +8,8 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
-
 import java.util.List;
 import java.util.Map;
-
 import static java.lang.Thread.currentThread;
 import static org.junit.Assert.assertEquals;
 
@@ -75,13 +73,15 @@ public class PhpRegistration {
         String userName = hooks.driver.findElement(By.xpath("//h3[text()='Hi, Test4 User4']")).getText();
         assertEquals("Hi, Test4 User4", userName);
         System.out.println("Navigated to newly created account page ");
+
+
     }
     @Then("I should get a error message")
-    public void errorMessage() {
+    public void errorMessage() throws InterruptedException {
+        currentThread().sleep(10000);
+
         String error = hooks.driver.findElement(By.xpath("//div[@class='alert alert-danger']")).getText();
+        System.out.println(error);
         assertEquals("Email Already Exists.", error);
-    }
-    @Then("New account must not be created")
-    public void noAccountCreated() {
     }
 }

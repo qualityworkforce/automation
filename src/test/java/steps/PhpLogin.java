@@ -1,5 +1,4 @@
 package steps;
-
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -27,11 +26,11 @@ public class PhpLogin {
     @When("I click Login button")
     public void clickLoginButton() throws InterruptedException {
         hooks.driver.findElement(By.xpath("//button[contains(text(),'Login')]")).click();
-        currentThread().sleep(1000);
+        currentThread().sleep(10000);
     }
     @Then("I should be navigated to my account page")
     public void navigateToAccountPage() {
-        String userName = hooks.driver.findElement(By.xpath("//h3[text()='Hi, Test User']")).getText();
-        assertEquals("Hi, Test User", userName);
+        String userName =hooks.driver.findElement(By.xpath("//h3[@class='RTL']")).getText();
+        assertEquals("Hi, Ambi Cha", userName);
     }
 }

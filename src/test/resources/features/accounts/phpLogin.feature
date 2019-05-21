@@ -1,5 +1,6 @@
 Feature: Login
 
+  @login
   Scenario: Valid Login
     Given I navigate to PHP Travels Login page
     And enter valid email id

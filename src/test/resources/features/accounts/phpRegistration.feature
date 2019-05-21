@@ -17,4 +17,3 @@ Feature: Registration
       | Test4      | User4     | 9898989898    | ambi5@gmail.com | Test1234 | Test1234         |
     When I click Sign UP button
     Then I should get a error message
-    And New account must not be created
