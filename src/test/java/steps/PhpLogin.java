@@ -56,4 +56,9 @@ public class PhpLogin {
 
     }
 
+//    public static void clickById(String id, String value){
+//        hooks.driver.findElement(By.id(id)).sendKeys(value);
+//
+//    }
+
 }
