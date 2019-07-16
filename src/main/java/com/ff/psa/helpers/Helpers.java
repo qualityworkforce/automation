@@ -1,4 +1,4 @@
-package steps;
+package com.ff.psa.helpers;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -20,8 +20,7 @@ public class Helpers {
    static String save ="//span[@id='button-1012-btnInnerEl']";
 
 
-
-    public static void enterTextByXpath(WebDriver driver, int timeout, String locator, String value){
+   public static void enterTextByXpath(WebDriver driver, int timeout, String locator, String value){
         WebElement ele = driver.findElement(By.xpath(locator));
         new WebDriverWait(driver,timeout).until(ExpectedConditions.visibilityOf(ele));
             ele.sendKeys(value);
@@ -39,25 +38,6 @@ public class Helpers {
     public static void verifyElementOIsClickable(WebDriver driver, int timeout , String newTask) {
         WebDriverWait wait =new WebDriverWait(driver,30);
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath(newTask)));
-    }
-
-
-
-    public static void login()
-    {
-        enterTextByXpath(hooks.driver, 30, Helpers.loc, "chaliki+spring2019@financialforce.com");
-        enterTextByXpath(hooks.driver, 30, Helpers.pass, "Test12345");
-        clickButtonByXpath(hooks.driver,30,login);
-    }
-
-    public static void navigateToProject()
-    {
-        clickButtonByXpath(hooks.driver,30,project);
-    }
-    public static void navigateToGantt (){
-        clickButtonByXpath(hooks.driver,30,Helpers.go);
-        clickButtonByXpath(hooks.driver,30,Helpers.proj);
-        Helpers.clickButtonByXpath(hooks.driver,30,Helpers.ganttbutton);
     }
 
 }

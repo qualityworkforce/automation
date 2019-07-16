@@ -1,39 +1,30 @@
-package steps;
+package com.ff.psa.steps.php;
 
+import com.ff.psa.Hooks;
 import cucumber.api.java.en.Given;
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
-import org.junit.Assert;
 import org.openqa.selenium.*;
-import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import javax.swing.*;
-import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 import static java.lang.Thread.currentThread;
 
 public class HotelSearch {
 
-//    Alert newA = hooks.driver.
+//    Alert newA = Hooks.driver.
 
 
     @Given("I click on hotel tab")
     public void i_click_on_hotel_tab() throws InterruptedException {
-        hooks.driver.findElement(By.xpath("//span[contains(text(),'Hotels')]")).click();
+        Hooks.driver.findElement(By.xpath("//span[contains(text(),'Hotels')]")).click();
         currentThread().sleep(2000);
 
     }
 
     @Given("I enter the city name")
     public void i_enter_the_city_name_as_from_Country() throws InterruptedException{
-        WebElement search = hooks.driver.findElement(By.xpath("//div[@class='col-md-4 col-xs-12 go-text-right go-right form-group bgwhite h60']"));
+        WebElement search = Hooks.driver.findElement(By.xpath("//div[@class='col-md-4 col-xs-12 go-text-right go-right form-group bgwhite h60']"));
 
 
-        Actions act = new Actions(hooks.driver);
+        Actions act = new Actions(Hooks.driver);
         System.out.println("This is done ");
         act.moveToElement(search).click().sendKeys("Hyderabad");
         System.out.println("This is done 1");
@@ -43,29 +34,29 @@ public class HotelSearch {
 
 //        String searchEnabler = "//div[@class='tab-content shad RTL_shad search-form']";
 //
-//        WebDriverWait wait = new WebDriverWait(hooks.driver, 10);
+//        WebDriverWait wait = new WebDriverWait(Hooks.driver, 10);
 //        wait.until(ExpectedConditions.elementToBeClickable(By.xpath(searchEnabler)));
 //
-//        hooks.driver.findElement(By.xpath(searchEnabler)).click();
+//        Hooks.driver.findElement(By.xpath(searchEnabler)).click();
 //        System.out.println("done it");
 
-        //  hooks.driver.findElement(By.xpath("//div[@id='select2-drop']//div[@class='select2-search']")).sendKeys(cityName);
+        //  Hooks.driver.findElement(By.xpath("//div[@id='select2-drop']//div[@class='select2-search']")).sendKeys(cityName);
 
 
 
 
-//            WebElement search = hooks.driver.findElement(By.xpath("//div[@class='col-md-4 col-xs-12 go-text-right go-right form-group bgwhite h60']"));
+//            WebElement search = Hooks.driver.findElement(By.xpath("//div[@class='col-md-4 col-xs-12 go-text-right go-right form-group bgwhite h60']"));
 //            search.click();
-//            hooks.driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+//            Hooks.driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 //            String searchForm = "#body-section > section > div.cell > div > div > div.col-md-12 > div";
-//            hooks.driver.findElement(By.cssSelector(searchForm)).click();
+//            Hooks.driver.findElement(By.cssSelector(searchForm)).click();
 
 
 
-//        WebDriverWait wait = new WebDriverWait(hooks.driver, 30);
+//        WebDriverWait wait = new WebDriverWait(Hooks.driver, 30);
 //        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector(searchForm)));
 //
-//        WebElement input = hooks.driver.findElement(By.xpath("//div[@class=\"select2-search\"]//input[@type=\"text\"]"));
+//        WebElement input = Hooks.driver.findElement(By.xpath("//div[@class=\"select2-search\"]//input[@type=\"text\"]"));
 //        input.click();
 //            String cityName = "Hyderabad";
 //
@@ -74,7 +65,7 @@ public class HotelSearch {
 //
 //           String js = "arguments[0].setAttribute('value','" + cityName + "')";
 //
-//           ((JavascriptExecutor) hooks.driver).executeScript(js, input);
+//           ((JavascriptExecutor) Hooks.driver).executeScript(js, input);
 //
 //           currentThread().sleep(10000);
 //
