@@ -1,6 +1,6 @@
 package com.ff.psa.steps.php;
 
-import com.ff.psa.Hooks;
+import com.ff.psa.steps.Hooks;
 import cucumber.api.java.en.Given;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;

@@ -66,6 +66,13 @@
       <scope>test</scope>
     </dependency>
 
+    <dependency>
+      <groupId>ru.yandex.qatools.allure</groupId>
+      <artifactId>allure-junit-adaptor</artifactId>
+      <version>1.5.4</version>
+      <scope>test</scope>
+    </dependency>
+
 
   </dependencies>
 

@@ -1,5 +1,5 @@
 package com.ff.psa.steps.php;
-import com.ff.psa.Hooks;
+import com.ff.psa.steps.Hooks;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
