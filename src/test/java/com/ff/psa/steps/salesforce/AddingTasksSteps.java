@@ -10,19 +10,20 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
 
-public class AddingTasks {
+public class AddingTasksSteps {
 
-    LoginPage   loginPage   = new LoginPage(Hooks.driver);
-    ProjectPage projectPage = new ProjectPage(Hooks.driver);
-    CommonPage  commonPage  = new CommonPage(Hooks.driver);
-    GanttPage   ganttPage   = new GanttPage(Hooks.driver);
+    LoginPage   loginPage   = new LoginPage();
+    ProjectPage projectPage = new ProjectPage();
+    CommonPage  commonPage  = new CommonPage();
+    GanttPage   ganttPage   = new GanttPage();
 
     public void GanttNavigation() {
-        loginPage   = new LoginPage(Hooks.driver);
-        projectPage = new ProjectPage(Hooks.driver);
-        commonPage  = new CommonPage(Hooks.driver);
-        ganttPage   = new GanttPage(Hooks.driver);
+        loginPage   = new LoginPage();
+        projectPage = new ProjectPage();
+        commonPage  = new CommonPage();
+        ganttPage   = new GanttPage();
     }
+
     @Given("I am on project page")
     public void i_am_on_project_page() {
         loginPage.enterUserName("chaliki+spring2019@financialforce.com");
@@ -38,20 +39,21 @@ public class AddingTasks {
         projectPage.ganttButtonClick();
         ganttPage.verifyGanttLogo();
     }
-    @When("I click on add task button")
-    public void i_click_on_add_task_button() {
 
+    @When("I click on add task button")
+    public void i_click_on_add_task_button()
+    {
         ganttPage.addNewTask();
     }
 
     @Then("new task must be added")
-    public void new_task_must_be_added() {
+    public void new_task_must_be_added()
+    {
     }
+
     @Then("added tasks must be saved when we will save button")
-    public void tasksMustBeSaved(){
+    public void tasksMustBeSaved() throws InterruptedException {
         ganttPage.saveChanges();
-
+        ganttPage.deleteTask();
     }
-
-
 }

@@ -1,53 +1,57 @@
 package com.ff.psa.pageobjects;
 
-import com.ff.psa.helpers.Helpers;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class GanttPage {
+import java.io.IOException;
 
-    private WebDriverWait webDriverWait;
-    private WebDriver driver;
-    Helpers helpers;
+public class GanttPage extends BaseClass {
 
-    public GanttPage(WebDriver driver) {
-
-        this.driver = driver;
-        this.webDriverWait = new WebDriverWait(driver, 30);
+    public GanttPage() {
         PageFactory.initElements(driver, this);
-        helpers = new Helpers();
     }
 
     @FindBy(xpath = "//div[@id='ganttappheaderbar-1009-title-iconEl']")
-    WebElement ganttLogo;
+    private WebElement ganttLogo;
 
     @FindBy(xpath = "//span[@id='button-1041-btnIconEl']")
-    WebElement newTask;
+    private WebElement newTask;
 
     @FindBy(xpath = "//span[@id='button-1012-btnInnerEl']")
-    WebElement save;
+    private WebElement save;
+
+    @FindBy(xpath = "//span[@id='button-1042-btnIconEl']")
+    private WebElement delete;
+
+    @FindBy(xpath = "//div[@id='loadmask-1057-msgEl']")
+    private WebElement loadMask;
 
 
-    public void verifyGanttLogo() {
-        this.ganttLogo.isDisplayed();
+    public void verifyGanttLogo()
+    {
+        driverUtilities.visibilityOfElement(ganttLogo);
+        driverUtilities.verifyElementIsClickable(newTask);
     }
 
     public void addNewTask() {
-        this.newTask.isEnabled();
-        try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+        driverUtilities.novisibiltyOfLoadMask(loadMask);
+        driverUtilities.verifyElementIsClickable(newTask);
+            driverUtilities.clickButton(newTask);
         }
-        Helpers.clickButtonByXpath(driver, 30, "//span[@id='button-1041-btnIconEl']");
+
+        public void saveChanges()
+        {
+            driverUtilities.novisibiltyOfLoadMask(loadMask);
+            driverUtilities.clickButton(save);
+        }
+
+        public void deleteTask() throws InterruptedException {
+            driverUtilities.visibilityOfElement(delete);
+            driverUtilities.verifyElementIsClickable(delete);
+            driverUtilities.novisibiltyOfLoadMask(loadMask);
+            driverUtilities.clickButton(delete);
+            driverUtilities.novisibiltyOfLoadMask(loadMask);
+            driverUtilities.clickButton(save);
     }
-
-    public void saveChanges() {
-        this.save.click();
-    }
-
-
 }

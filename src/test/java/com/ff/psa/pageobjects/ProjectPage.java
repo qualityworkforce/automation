@@ -6,48 +6,48 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class ProjectPage {
-    private WebDriver driver;
-    private WebDriverWait webDriverWait;
+import java.io.IOException;
 
+public class ProjectPage extends BaseClass {
 
-    public ProjectPage (WebDriver driver)
-    {
-        this.driver = driver;
-        this.webDriverWait = new WebDriverWait(driver, 30);
+    public ProjectPage () {
         PageFactory.initElements(driver, this);
     }
 
     @FindBy(xpath = "//a[contains(text(),'Projects')]")
-    WebElement projectsTab;
+    private WebElement projectsTab;
 
     @FindBy(xpath = "//input[@name='go']")
-    WebElement go;
+    private WebElement go;
 
     @FindBy(xpath ="//span[contains(text(),'Proj1')]")
-    WebElement project;
+    private WebElement project;
 
     @FindBy(xpath = "//td[@id='topButtonRow']//input[@name='gantt_pilot']")
-    WebElement gantt;
-    public void clickOnProjectsTab(){
-        this.projectsTab.click();
+    private WebElement gantt;
+
+    public void clickOnProjectsTab()
+    {
+        driverUtilities.clickButton(projectsTab);
     }
 
-    public void clickOnGo(){
-        this.go.click();
+    public void clickOnGo()
+    {
+        driverUtilities.clickButton(go);
     }
-    public void clickOnProjects(){
-        this.project.click();
-    }
-
-    public void ganttButtonDisplayed() {
-        this.gantt.isDisplayed();
+    public void clickOnProjects()
+    {
+        driverUtilities.clickButton(project);
     }
 
-    public void ganttButtonClick() {
-        this.gantt.click();
+    public void ganttButtonDisplayed()
+    {
+        driverUtilities.visibilityOfElement(gantt);
     }
 
-
+    public void ganttButtonClick()
+    {
+        driverUtilities.clickButton(gantt);
+    }
 
 }
