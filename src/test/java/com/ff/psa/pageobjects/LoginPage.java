@@ -1,5 +1,6 @@
 package com.ff.psa.pageobjects;
 
+import com.ff.psa.configurations.ConfigurationManager;
 import com.ff.psa.helpers.Helpers;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -12,6 +13,7 @@ public class LoginPage {
     private WebDriver driver;
     private WebDriverWait webDriverWait;
     Helpers helpers;
+    ConfigurationManager config = new ConfigurationManager();
 
     public LoginPage(WebDriver driver){
         this.driver = driver;
@@ -29,24 +31,26 @@ public class LoginPage {
     @FindBy(xpath = "//input[@id='Login']")
     WebElement loginButton;
 
-    public void enterUserName(String userName){
+    public void enterUserName()
+    {
         this.userName.clear();
-        this.userName.sendKeys(userName);
+        this.userName.sendKeys(config.username);
     }
 
-    public void enterPassword(String password){
+    public void enterPassword()
+    {
         this.password.clear();
-        this.password.sendKeys(password);
+        this.password.sendKeys(config.password);
     }
 
-    public void clickLoginButton(){
+    public void clickLoginButton()
+    {
         this.loginButton.click();
         helpers.verifyElementIsPresent(driver, 30, "//*[@id=\"home_Tab\"]");
     }
 
-    public String getPageTitle() {
+    public String getPageTitle()
+    {
        return driver.getTitle();
     }
-
-
 }

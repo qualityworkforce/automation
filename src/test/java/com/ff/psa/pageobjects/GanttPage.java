@@ -24,6 +24,9 @@ public class GanttPage {
     @FindBy(xpath = "//div[@id='ganttappheaderbar-1009-title-iconEl']")
     WebElement ganttLogo;
 
+    @FindBy(xpath ="")
+    WebElement loadMask;
+
     @FindBy(xpath = "//span[@id='button-1041-btnIconEl']")
     WebElement newTask;
 
@@ -31,11 +34,14 @@ public class GanttPage {
     WebElement save;
 
 
-    public void verifyGanttLogo() {
+    public void verifyGanttLogo()
+    {
         this.ganttLogo.isDisplayed();
+        Helpers.waitForLoadMaskToDissappear(driver,30,"//div[@id='loadmask-1057-msgEl']");
     }
 
-    public void addNewTask() {
+    public void addNewTask()
+    {
         this.newTask.isEnabled();
         try {
             Thread.sleep(5000);
@@ -45,7 +51,8 @@ public class GanttPage {
         Helpers.clickButtonByXpath(driver, 30, "//span[@id='button-1041-btnIconEl']");
     }
 
-    public void saveChanges() {
+    public void saveChanges()
+    {
         this.save.click();
     }
 

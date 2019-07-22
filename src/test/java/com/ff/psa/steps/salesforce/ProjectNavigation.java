@@ -12,18 +12,15 @@ public class ProjectNavigation {
     LoginPage loginPage = new LoginPage(Hooks.driver);
     ProjectPage projectPage = new ProjectPage(Hooks.driver);
 
-public void OpeningGanttSteps(){
-  loginPage = new LoginPage(Hooks.driver);
-    projectPage = new ProjectPage(Hooks.driver);
-}
     @Given("I am logged into Salesforce account")
     public void logintToSalesforce()
     {
-        loginPage.enterUserName("chaliki+spring2019@financialforce.com");
-        loginPage.enterPassword("Test12345");
+        loginPage.enterUserName();
+        loginPage.enterPassword();
         loginPage.clickLoginButton();
         Assert.assertEquals(loginPage.getPageTitle(), "Home Page ~ Salesforce - Developer Edition");
     }
+
     @Given("I click on Project tab")
     public void navigateToProject()
     {
@@ -37,7 +34,6 @@ public void OpeningGanttSteps(){
     {
         projectPage.ganttButtonDisplayed();
     }
-
-    }
+}
 
 

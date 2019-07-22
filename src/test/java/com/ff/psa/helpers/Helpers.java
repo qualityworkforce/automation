@@ -31,5 +31,10 @@ public class Helpers {
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath(newTask)));
     }
 
+    public static void waitForLoadMaskToDissappear(WebDriver driver,int timeout ,String loc) {
+        WebDriverWait wait = new WebDriverWait(driver,30);
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath(loc)));
+    }
+
 }
 

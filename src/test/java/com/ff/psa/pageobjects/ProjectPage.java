@@ -10,7 +10,6 @@ public class ProjectPage {
     private WebDriver driver;
     private WebDriverWait webDriverWait;
 
-
     public ProjectPage (WebDriver driver)
     {
         this.driver = driver;
@@ -29,25 +28,28 @@ public class ProjectPage {
 
     @FindBy(xpath = "//td[@id='topButtonRow']//input[@name='gantt_pilot']")
     WebElement gantt;
-    public void clickOnProjectsTab(){
+
+    public void clickOnProjectsTab()
+    {
         this.projectsTab.click();
     }
 
-    public void clickOnGo(){
+    public void clickOnGo()
+    {
         this.go.click();
     }
-    public void clickOnProjects(){
+    public void clickOnProjects()
+    {
         this.project.click();
     }
 
-    public void ganttButtonDisplayed() {
+    public void ganttButtonDisplayed()
+    {
         this.gantt.isDisplayed();
     }
 
-    public void ganttButtonClick() {
+    public void ganttButtonClick()
+    {
         this.gantt.click();
     }
-
-
-
 }

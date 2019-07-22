@@ -17,30 +17,25 @@ public class AddingTasks {
     CommonPage  commonPage  = new CommonPage(Hooks.driver);
     GanttPage   ganttPage   = new GanttPage(Hooks.driver);
 
-    public void GanttNavigation() {
-        loginPage   = new LoginPage(Hooks.driver);
-        projectPage = new ProjectPage(Hooks.driver);
-        commonPage  = new CommonPage(Hooks.driver);
-        ganttPage   = new GanttPage(Hooks.driver);
-    }
     @Given("I am on project page")
     public void i_am_on_project_page() {
-        loginPage.enterUserName("chaliki+spring2019@financialforce.com");
-        loginPage.enterPassword("Test12345");
+        loginPage.enterUserName();
+        loginPage.enterPassword();
         loginPage.clickLoginButton();
         commonPage.verifyHomeButtonPresent();
         projectPage.clickOnProjectsTab();
         projectPage.clickOnGo();
         projectPage.clickOnProjects();
     }
+
     @When("I click Gantt Button")
     public void i_click_Gantt_Button() {
         projectPage.ganttButtonClick();
         ganttPage.verifyGanttLogo();
     }
+
     @When("I click on add task button")
     public void i_click_on_add_task_button() {
-
         ganttPage.addNewTask();
     }
 
@@ -50,8 +45,5 @@ public class AddingTasks {
     @Then("added tasks must be saved when we will save button")
     public void tasksMustBeSaved(){
         ganttPage.saveChanges();
-
     }
-
-
 }
